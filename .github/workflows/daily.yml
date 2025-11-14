@@ -2,7 +2,7 @@ name: Daily Contributions (15 per day)
 
 on:
   schedule:
-    - cron: "24 11 * * *"   # يشتغل يوميًا على الساعة 06:00 UTC
+    - cron: "35 11 * * *"   # يشتغل يوميًا على الساعة 06:00 UTC
   workflow_dispatch:
 
 jobs:
