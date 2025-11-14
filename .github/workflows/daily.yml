@@ -1,0 +1,31 @@
+name: Daily Contributions (15 per day)
+
+on:
+  schedule:
+    - cron: "0 6 * * *"   # يشتغل يوميًا على الساعة 06:00 UTC
+  workflow_dispatch:
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Run update script
+        run: |
+          python update.py
+
+      - name: Commit changes
+        run: |
+          git config --global user.name "Lecheheb Djaafar"
+          git config --global user.email "djaafardjaafarlolo@gmail.com"
+          git add .
+          git commit -m "Daily 15 auto-commits"
+          git push
